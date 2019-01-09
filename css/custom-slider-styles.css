@@ -1,0 +1,47 @@
+#slider-range-selector .slider-selection {
+    background: #C7F8FF;
+}
+
+#slider-range-selector .slider-rangeHighlight {
+    background: #f70616;
+}
+
+#slider-range-selector .slider-rangeHighlight.category1 {
+    background: #81BFDE;
+}
+
+#slider-range-selector .slider-rangeHighlight.category2 {
+    background: #60D2E3;
+}
+
+#slider-range-selector .slider-rangeHighlight.category3 {
+    background: #55E3D6;
+}
+
+#slider-range-selector .slider-rangeHighlight.category4 {
+    background: #7AF0B7;
+}
+
+#slider-range-selector .slider-rangeHighlight.category5 {
+    background: #015367;
+}
+
+#slider-range-selector .slider-rangeHighlight.category6 {
+    background: #60B9CE;
+}
+
+#slider-range-selector .slider-rangeHighlight.category7 {
+    background: #FF7F00;
+}
+
+#slider-range-selector .slider-rangeHighlight.category8 {
+    background: #99CC00;
+}
+
+#slider-range-selector .slider-rangeHighlight.category9 {
+    background: #F2FD3F;
+}
+
+#slider-range-selector .slider-rangeHighlight.category10 {
+    background: #52026E	;
+}
