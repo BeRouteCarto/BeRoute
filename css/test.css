@@ -14,30 +14,17 @@ body {
 }
 
 .navigationbar {
-
 	width: 80%;
 	margin: 0 auto;
-}
-
-header {
-	background: url('../css/navimg.jpg') center top repeat-x;
-	opacity: 70%;
-}
-
-header::after {
-	content: '';
-	display: table;
-	clear: both;
-}
-		
-nav {
 	float: right;
 	height: 65px;
+	padding-right: 55px;
 }
 
 .navbar-brand {
 	float: left;
-	margin-left: 23px;
+	margin-left: 130px;
+	margin-bottom: 2px;
 	padding: 12px 0;
 	font-family: cursive;
 	font-style: italic;
@@ -50,15 +37,16 @@ nav {
 }
 
 nav ul {
+	float: right;
 	margin: 0;
-	padding: 0;
+	padding: 16px;
 	list-style: none;
 }
 
 nav li {
 	display: inline-block;
 	margin-left: 70px;
-	padding-top: 19px;
+	padding-top: 0px;
 
 	position: relative;
 }
@@ -94,10 +82,6 @@ nav a:hover::before {
 
 #submit-slider-range-selector {
 	display: block;
-}
-
-.MunchenBoundaries {
-	
 }
 
 .form.visible {
@@ -164,9 +148,6 @@ nav a:hover::before {
 
 .button-container a.hide{
 	display: none;
-}
-
-.main {
 }
 
 .input.frame{
@@ -254,4 +235,14 @@ nav a:hover::before {
 	margin-bottom: 0px;
 	margin: 5px;
 	margin-top: 15px;
+}
+
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 30px;
+    height: 30px;
+}
+
+div.leaflet-control-layers.leaflet-control {
+    margin-top: 77px;
+    margin-right: 7px;
 }
