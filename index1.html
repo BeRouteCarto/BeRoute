@@ -1,0 +1,623 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Browser cannot find this file following this path, where is it? 
+        <link rel="icon" href="../../../../favicon.ico"> -->
+
+        <title>BeRoute</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="lib/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Font -->
+    	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" /> 
+
+    	<!-- Font 
+    	<link href="lib/bootstrap-slider/dist/css/bootstrap-slider.css" rel="stylesheet" /> -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	
+        <!-- leaflet-routing-machine -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+        
+        <!-- Custom styles for this template -->
+        <!-- What is it? Where is it?
+        <link href="starter-template.css" rel="stylesheet">
+        -->
+        
+        <!-- Font -->
+    	<link href="css/FontAwesome.css" rel="stylesheet">  
+        <!--  Sidebar style -->
+        <link rel="stylesheet" href="lib/sidebar-v2/css/leaflet-sidebar.css" />
+        <!-- Basemaps and layer switcher control -->
+        <link rel="stylesheet" href="lib/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.css">
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="lib/Leaflet/dist/leaflet.css">
+        <!-- Our customized css -->
+        <link rel="stylesheet" href="css/test.css"/>
+        
+
+        <style>
+    		nav {
+    		    height: 65px;
+    		}
+    		main {
+                
+                overflow: hidden;
+    			padding: 0;
+    			margin: 0;
+            }
+    		#sidebar {
+                top: 100px;
+                position: absolute;
+                height: 80%;
+    			left: 10px;
+                
+            }
+            #map {
+                width: 100%;
+    			top: 65px;
+                position: absolute;
+    			left: 0px;
+    			bottom: 0px;
+    			right:0px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Nav bar -->
+        <header>
+            <div class="navigationbar">
+                <b class="navbar-brand" href="#">BeRoute</b>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                    
+                    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigationbar" aria-controls="navigationbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Data</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+       <main role="main" class="container-fluid">
+    	<div id="sidebar" class="sidebar collapsed">
+            <!-- Nav tabs -->
+            <div class="sidebar-tabs">
+                <ul role="tablist">
+                    <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                    <li><a href="#mood" role="tab"><i class="fa fa-heart"></i></a></li>
+                    <!-- <li><a href="#time" role="tab"><i class="fa fa-times"></i></a></li>
+                    <li><a href="#type" role="tab"><i class="fa fa-beer"></i></a></li> -->
+                    <li><a href="#type" role="tab"><i class="fa fa-beer"></i></a></li>
+                    <li><a href="#route" role="tab"><i class="fa fa-location-arrow"></i></a></li>
+                    <li><a href="https://github.com/BeRouteCarto/BeRoute" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
+                </ul>
+                <!-- SETTINGS BUTTON 
+                <ul role="tablist">
+                    <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                </ul>  
+                -->
+            </div>
+
+            <!-- Tab panes -->
+
+            <!-- Filter Tab pane -->
+            <div class="sidebar-content">
+                <div class="sidebar-pane" id="home">
+                    <h1 class="sidebar-header">
+                        Filters
+                        <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    </h1>
+                </div>
+    			<!-- Mood Selection Tab pane -->
+                <div class="sidebar-pane" id="mood">
+                    <h1 class="sidebar-header">Mood Selection<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+    				<input id="slider-range-selector-input" type="text"
+    					data-slider-id="slider-range-selector"
+    					data-slider-min="0"
+    					data-slider-max="9"
+    					data-slider-step="1"
+    					data-slider-value="5"
+    					data-slider-rangeHighlights='[{ "start": 0, "end": 1, "class": "category1" },
+    					{ "start": 1, "end": 2, "class": "category2" },
+    					{ "start": 2, "end": 3, "class": "category3" },
+    					{ "start": 3, "end": 4, "class": "category4" },
+    					{ "start": 4, "end": 5, "class": "category5" },
+    					{ "start": 5, "end": 6, "class": "category6" },
+    				    { "start": 6, "end": 7, "class": "category7" },
+    					{ "start": 7, "end": 8, "class": "category8" },
+    					{ "start": 8, "end": 9, "class": "category9" },
+    					{ "start": 9, "end": 10, "class": "category10" },
+    					]' />
+    				<input id="submit-slider-range-selector" type="submit">
+    			</div>
+
+                <!-- Time Selection Tab pane -->
+                <!--<div class="sidebar-pane" id="time">
+                    <h1 class="sidebar-header">Time Selection<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                </div> -->
+
+                <!-- Spot types Tab pane -->
+                <div class="sidebar-pane active" id="type">
+                    <h1 class="sidebar-header">
+                        Spot Type
+                        <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                    </h1>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <div>
+                                <div class="form-check" style="margin-bottom: 10px; margin-top: 10px">
+                                    <input class="form-check-input" type="checkbox" name= "spots" id="Bar" value="Bar" checked>
+                                    <label class="form-check-label" for="Bar">
+                                        Bar
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px;">
+                                    <input class="form-check-input"  type="checkbox" name= "spots" id="Cafe" value="Cafe">
+                                    <label class="form-check-label" for="Cafe">
+                                        Cafe
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px;">
+                                    <input class="form-check-input" type="checkbox" name= "spots" id="Club" value="Club">
+                                    <label class="form-check-label" for="Club">
+                                        Club
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px;">
+                                    <input class="form-check-input" type="checkbox" name= "spots" id="Park" value="Park">
+                                    <label class="form-check-label" for="Park">
+                                        Park/Garden
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px;">
+                                    <input class="form-check-input" type="checkbox" name= "spots" id="Pub" value="Pub">
+                                    <label class="form-check-label" for="Pub">
+                                        Pub
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px;">
+                                    <input class="form-check-input" type="checkbox" name= "spots" id="Restauraunt" value="Restauraunt">
+                                    <label class="form-check-label" for="Restauraunt">
+                                        Restauraunt
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px;">
+                                    <input class="form-check-input" type="checkbox" name= "spots" id="Others" value="Others">
+                                    <label class="form-check-label" for="Others">
+                                        Others
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                <!-- Route Tab pane -->
+                </div>
+                <div class="sidebar-pane" id="route">
+                    <h1 class="sidebar-header">Route<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+    			</div>
+
+                <!-- Settings Tab pane -->
+                <!-- <div class="sidebar-pane" id="settings">
+                    <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                </div> -->
+            </div>
+        </div>
+
+        <div id="map" class="sidebar-map"></div>
+
+        </main><!-- /.container -->
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!--  
+    	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+
+
+
+        <!-- leaflet-routing-machine -->
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+
+         <!-- Leaflet.js -->
+        <script src="lib/Leaflet/dist/leaflet.js"></script>
+        <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- Leaflet lib -->
+        <script src="lib/leaflet-providers-master/leaflet-providers.js"></script>
+        
+        <!-- Leaflet sidebar -->
+        <script src="lib/sidebar-v2/js/leaflet-sidebar.js"></script>
+        <!-- Leaflet marker icons 
+        <script src="lib/BeautifyMarker-master/leaflet-beautify-marker-icon.js"></script> -->
+        <!-- Leaflet layer switcher -->
+        <script src="lib/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.js"></script>
+        <!-- Bootstrap slider -->
+        <script type="text/javascript" src="lib/bootstrap-slider/dist/bootstrap-slider.js"></script>
+
+
+        <!-- Data -->
+        <script type="text/javascript" src="data/emo_json_100.js"></script>
+        <script src="data/Basemaps.js"></script>
+    	<script src="spot/bar.json"></script>
+    	<script src="spot/cafe.json"></script>
+    	<script src="spot/club.json"></script>
+    	<script src="spot/others.json"></script>
+    	<script src="spot/plaza_garden.json"></script>
+    	<script src="spot/pub.json"></script>
+    	<script src="spot/restaurant.json"></script>
+    	
+    	
+
+	    <script>
+
+
+	        // Old part with Basemap
+	    	//var map = L.map('map').setView([48.133333, 11.566667], 11);
+	        //var OSMBackground = new L.tileLayer.provider('Wikimedia').addTo(map);
+	    	//var basemap = L.tileLayer('https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	        //        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	        //        subdomains: 'abcd',
+	        //        maxZoom: 19
+	        //    }).addTo(map);
+
+	        // Layer and Basemaps switcher control
+	        var map = L.map('map', {
+	            center: [48.133333, 11.566667],
+	            zoom: 11,
+	            layers: [Basemaps.Basemaps.DarkMatter, Basemaps.Basemaps.Wikimedia, Basemaps.Basemaps.OpenStreetMap_DE]
+	        });
+	        // Use the custom grouped layer control, not "L.control.layers"
+	        L.control.groupedLayers(Basemaps.Basemaps).addTo(map);
+
+
+	        var MunchenBoundaries = L.geoJson(MunchenBoundaries).addTo(map);
+	        var FrameBoundary = map.fitBounds([
+	            [48.0616, 11.3608],
+	            [48.2482, 11.7229]
+	        ]);
+	    	var sidebar = L.control.sidebar('sidebar').addTo(map);
+	    	//emotion choosen
+	        var myStyles = initStyles();
+	        var points_emotion = L.geoJson(emo_100_poly, {
+	            style:function(feature) {
+	                return myStyles[Math.floor(feature.properties.score)];
+	            }}).addTo(map);
+	        
+
+	        $( ".button.open" ).click(function() {
+	            $(".form").addClass("unvisible");
+	            $(".form").removeClass("visible");
+	            $( ".button.close" ).removeClass( "hide" );
+	            $( ".button.open" ).addClass( "hide" ); 
+	        });
+
+	        $( ".button.close" ).click(function() {
+	            $(".form").addClass("visible");
+	            $(".form").removeClass("unvisible");
+	            $( ".button.open" ).removeClass( "hide" );
+	            $( ".button.close" ).addClass( "hide" );    
+	        });
+
+	        $( "#sidebar" ).hover(function() {
+	                map.dragging.disable();
+	                map.touchZoom.disable();
+	                map.doubleClickZoom.disable();
+	                map.scrollWheelZoom.disable();
+	                map.boxZoom.disable();
+	                map.keyboard.disable();
+	            },
+	            function() {
+	                map.dragging.enable();
+	                map.touchZoom.enable();
+	                map.doubleClickZoom.enable();
+	                map.scrollWheelZoom.enable();
+	                map.boxZoom.enable();
+	                map.keyboard.enable();
+	            });
+
+	        var sliderRangeSelector = $('#slider-range-selector-input').slider({
+	            id: 'slider-range-selector-input',
+	            min: 0,
+	            max: 9,
+	            step: 1,
+	            value: [0, 9],
+	            rangeHighlights: [
+	                {id: "", "start": 0, "end": 1, "class": "category1"},
+	                {"start": 1, "end": 2, "class": "category2"},
+	                {"start": 2, "end": 3, "class": "category3"},
+	                {"start": 3, "end": 4, "class": "category4"},
+	                {"start": 4, "end": 5, "class": "category5"},
+	                {"start": 5, "end": 6, "class": "category6"},
+	                {"start": 6, "end": 7, "class": "category7"},
+	                {"start": 7, "end": 8, "class": "category8"},
+	                {"start": 8, "end": 9, "class": "category9"},
+	                {"start": 9, "end": 10, "class": "category10"},
+	            ],
+	            formatter: function (value) {
+	                return 'Current value: ' + value;
+	            }
+	        });
+
+
+	        //init styles array
+	        var myStyles = initStyles();
+	        $( "#submit-slider-range-selector" ).click(function() {
+	            // var myStyle = {
+	            //  "color": "red",
+	            //  "weight": 5,
+	            //  "opacity": 0.65
+	            // };
+	            points_emotion.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+
+	            var selectorValue = sliderRangeSelector.slider('getValue');
+
+	            points_emotion = L.geoJson(
+	                emo_100_poly,
+	                {
+	                    style:function(feature) {
+	                       return myStyles[Math.floor(feature.properties.score)];
+	                    },
+	                    filter: function (feature, layer) {
+	                        return selectorValue[0] <= Math.floor(feature.properties.score) && selectorValue[1] > Math.floor(feature.properties.score);
+	                    }
+	                }).addTo(map);
+	            addPointsInPolygons();
+	        });
+
+	        function initStyles() {
+	    		var styles = [];
+	    		let colors = [
+	    			'#ff0000',
+	    			'#d13632',
+	    			'#e2571e',
+	    			'#EC883A',
+	    			'#e69333',
+	    			'#D1D22C',
+	    			'#ffff00',
+	    			'#96bf33',
+	    			'#479e1b',
+	    			'#54f920',
+
+	    		];
+	        for (let i = 1; i <= 10; i++) {
+	            let style = {
+	                // "color": getStyleRuleValue('color', "category"+i),
+	                "color": colors[i],
+	                "weight": 2,
+	                "opacity": 0.65
+	            };
+	            styles[i]=(style);
+	        }
+	        return styles;
+	    	}
+	    	
+	       // spots selection
+	       var geojsonMarkerOptions = {
+	    		radius: 3,
+	    		fillColor: "#ff7800",
+	    		color: "#000",
+	    		weight: 1,
+	    		opacity: 1,
+	    		fillOpacity: 0.8 };
+
+	        var Bar = L.geoJson(bar, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}}).addTo(map);
+	        var Cafe = L.geoJson(cafe, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}});    
+	        var Club = L.geoJson(club, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}});
+	        var Others = L.geoJson(others, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}});
+	        var Park = L.geoJson(park, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}});
+	        var Pub = L.geoJson(pub, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}});
+	        var Restauraunt = L.geoJson(restaurant, { pointToLayer: function (feature, latlng) { 
+	            return L.circleMarker(latlng, geojsonMarkerOptions);}});
+
+	        function addPointsInPolygons() {
+	            Bar.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+	            Cafe.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+	            Club.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+	            Others.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+	            Park.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+	            Pub.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+	            Restauraunt.getLayers().forEach(function(item, i, arr) {
+	                map.removeLayer(item);
+	            });
+
+	            if($('#Bar').is(':checked'))
+	            Bar = L.geoJson(
+	                bar, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                    return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+	                    }
+	                }).addTo(map);
+
+	            if($('#Cafe').is(':checked'))
+	            Cafe = L.geoJson(
+	                cafe, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                        return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+
+	                    }
+	                }).addTo(map);
+
+	            if($('#Club').is(':checked'))
+	            Club = L.geoJson(
+	                club, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                        return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+	                    }
+	                }).addTo(map);
+
+	            if($('#Others').is(':checked'))
+	            Others = L.geoJson(
+	                others, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                        return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+	                    }
+	                }).addTo(map);
+
+	            if($('#Park').is(':checked'))
+	            Park = L.geoJson(
+	                park, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                        return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+	                    }
+	                }).addTo(map);
+	            if($('#Pub').is(':checked'))
+	            Pub = L.geoJson(
+	                pub, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                        return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+	                    }
+	            }).addTo(map);
+
+	            if($('#Restauraunt').is(':checked'))
+	            Restauraunt = L.geoJson(
+	                restaurant, 
+	                { 
+	                    pointToLayer: function (feature, latlng) { 
+	                        return L.circleMarker(latlng, geojsonMarkerOptions);
+	                    },
+	                    filter: function (feature, layer) {
+	                        let newpoints = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+	                        return points_emotion.getLayers().some(function(element) {
+	                            return element.getBounds().contains(newpoints) === true;
+	                        });
+	                        // return points_emotion.getBounds().contains(some);
+
+	                    }
+	                }).addTo(map);
+	        }
+
+	        $('input:checkbox[name="spots"]').change(function () {
+	            addPointsInPolygons();
+	            //var layers = [];
+
+
+	            
+
+
+	            // if ($('#' + $(this).attr('id')).is(':checked')) {
+	            //  $('input:checkbox[name="spots"]').each(function () {
+	            //      // Remove all overlay layers
+	            //      map.removeLayer(window[$(this).attr('id')]);
+	            //      if ($('#' + $(this).attr('id')).is(':checked')) {
+	            //      // Add checked layers to array for sorting
+	            //      layers.push({
+	            //          'layer': $(this)
+	            //      });
+	            //      }
+	            //  });
+	            // // Loop through layers array and add to map in correct order
+	            // $.each(layers, function () {
+	            //  map.addLayer(window[$(this)[0].layer[0].id]);
+	            // });}
+	            // else {
+	            //  // Simply remove unchecked layers
+	            //  map.removeLayer(window[$(this).attr('id')]);}
+	            });
+	        
+	        //Route Generation
+	        
+	        
+	        //get users' location
+	        navigator.geolocation.getCurrentPosition(function(location) {
+	            var my_location = new L.LatLng(location.coords.latitude, location.coords.longitude);
+	            var marker = L.marker(my_location).addTo(map);
+	        });	 
+	    </script>
+    </body>
+</html>

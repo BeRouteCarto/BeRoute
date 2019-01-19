@@ -23,17 +23,20 @@ body {
 
 .navbar-brand {
 	float: left;
-	margin-left: 130px;
-	margin-bottom: 2px;
-	padding: 12px 0;
+	margin-left: -100px;
 	font-family: cursive;
 	font-style: italic;
-	font-variant: normal; 
 	font-weight: 700;
 	line-height: 26.4px;
 	font-size: 26px;
 	color: #ffffff;
 	text-shadow: #000 1px 0 1px;
+}
+
+.navbar-nav {
+	float: right;
+	margin-right: 100px;
+	margin-top: 6px;
 }
 
 nav ul {
@@ -245,4 +248,13 @@ nav a:hover::before {
 div.leaflet-control-layers.leaflet-control {
     margin-top: 77px;
     margin-right: 7px;
+}
+
+.sidebar-header {
+	background-color: #222222;
+}
+
+.sidebar-tabs > li.active, .sidebar-tabs > ul > li.active {
+    color: #fff;
+    background-color: #222222;
 }
