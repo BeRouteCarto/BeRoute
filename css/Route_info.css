@@ -1,0 +1,83 @@
+html, body { width: 100%; height: 100%; margin: 0; font-family: sans-serif;}
+
+.spinner-container {
+      position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(255, 255, 255, .6); z-index: 2000;
+      display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;
+      -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center;
+      -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around;
+    }
+
+.spinner-container.hidden { display: none; }
+
+.spinner {
+      border-radius: 100%; border: 5px solid rgba(112, 188, 122, 0.2); height: 100px; width: 100px; 
+      border-top-color: rgba(112, 188, 122, 1); animation: basic 1s infinite linear;
+    }
+
+@keyframes basic {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(359.9deg); }
+}
+
+
+.icon-poi {
+	border: 2px white solid; border-radius: 50%; width: 40px !important;
+    height: 40px !important; background-size: cover;
+}
+
+.icon-poi.selected { border: 4px yellow solid; }
+
+.icon-poi>img { width: 100%; height: 100%; border-radius: 50%; }
+
+.leaflet-popup-content p { margin: 8px 0 5px; }
+
+.button-group {
+    position: absolute; 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+    background-color: #fff; z-index: 1000;
+}
+
+.button {
+    text-transform: uppercase; color: #666; cursor: pointer;
+    background-color: #fff; padding: 15px 30px; display: inline-block;
+}
+
+.button:hover { background-color: #EEE; }
+
+.button.active { color: rgb(63, 81, 181); }
+
+.preview {
+      background-color: #fff; width: 100%; position: absolute; top: 100px; left: 10px;
+      max-height: 600px; bottom: 10px; width: 200px; z-index: 1800; box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+    }
+
+.preview h2 {
+    color: #fff; text-align: center; margin: 0; 
+    padding: 8px; background-color: rgba(112, 188, 122, 1);
+}
+
+.preview-content {
+    padding: 0 20px; overflow-y: auto;
+    position: absolute; top: 44px; bottom: 45px;
+}
+
+.preview-content h3 { margin: 8px 0; }
+
+.preview-content p { margin: 8px 0; }
+
+.img-block {
+	display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;
+    -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; margin-top: 20px;
+	}
+
+.img-block img { width: 75px; height: 75px; border-radius: 50%; }
+
+.control-group {
+    background-color: rgba(112, 188, 122, 1); position: absolute; bottom: 0; left: 0; right: 0;
+    display: -webkit-box; display: -moz-box; display: -ms-flexbox;display: -webkit-flex; display: flex;
+    -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around;
+ }
+
+.control-group .button { color: #000; font-size: 40px; padding: 0; background-color: rgba(112, 188, 122, 1); }
+
+.control-group .button:hover { color: #fff; background-color: rgba(112, 188, 122, 1); }
