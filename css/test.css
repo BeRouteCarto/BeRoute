@@ -14,48 +14,18 @@ body {
 }
 
 .navigationbar {
-<<<<<<< HEAD
-
-	width: 80%;
-	margin: 0 auto;
-}
-
-header {
-	background: url('../css/navimg.jpg') center top repeat-x;
-	opacity: 70%;
-}
-
-header::after {
-	content: '';
-	display: table;
-	clear: both;
-}
-		
-nav {
-	float: right;
-	height: 65px;
-=======
 	width: 80%;
 	margin: 0 auto;
 	float: right;
 	height: 65px;
 	padding-right: 55px;
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 }
 
 .navbar-brand {
 	float: left;
-<<<<<<< HEAD
-	margin-left: 23px;
-	padding: 12px 0;
-	font-family: cursive;
-	font-style: italic;
-	font-variant: normal; 
-=======
 	margin-left: -100px;
 	font-family: cursive;
 	font-style: italic;
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 	font-weight: 700;
 	line-height: 26.4px;
 	font-size: 26px;
@@ -63,11 +33,6 @@ nav {
 	text-shadow: #000 1px 0 1px;
 }
 
-<<<<<<< HEAD
-nav ul {
-	margin: 0;
-	padding: 0;
-=======
 .navbar-nav {
 	float: right;
 	margin-right: 100px;
@@ -78,18 +43,13 @@ nav ul {
 	float: right;
 	margin: 0;
 	padding: 16px;
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 	list-style: none;
 }
 
 nav li {
 	display: inline-block;
 	margin-left: 70px;
-<<<<<<< HEAD
-	padding-top: 19px;
-=======
 	padding-top: 0px;
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 
 	position: relative;
 }
@@ -127,13 +87,6 @@ nav a:hover::before {
 	display: block;
 }
 
-<<<<<<< HEAD
-.MunchenBoundaries {
-	
-}
-
-=======
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 .form.visible {
 	width: 100%;
 }
@@ -200,12 +153,6 @@ nav a:hover::before {
 	display: none;
 }
 
-<<<<<<< HEAD
-.main {
-}
-
-=======
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 .input.frame{
 	transition: 1.5s;
 	font: 17px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -292,10 +239,7 @@ nav a:hover::before {
 	margin: 5px;
 	margin-top: 15px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 0a2fa88c0e3e6a2a9e84379af8e02a419c5c2bdc
 .leaflet-touch .leaflet-control-layers-toggle {
 	width: 30px;
     height: 30px;
