@@ -10,26 +10,23 @@
 
         <title>BeRoute</title>
 
-        <!-- Bootstrap core CSS -->
+      <!-- Bootstrap core CSS -->
         <link href="lib/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
         
         <!-- Font -->
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" /> 
 
-    	<!-- Font 
-    	<link href="lib/bootstrap-slider/dist/css/bootstrap-slider.css" rel="stylesheet" /> -->
+    	<!-- Font -->
+    	<link href="lib/bootstrap-slider/dist/css/bootstrap-slider.css" rel="stylesheet" /> 
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     	
-        <!-- leaflet-routing-machine -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+        <!-- leaflet-routing-machine 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
     	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
         
         <!-- Custom styles for this template -->
-        <!-- What is it? Where is it?
-        <link href="starter-template.css" rel="stylesheet">
-        -->
-        
+       
         <!-- Font -->
     	<link href="css/FontAwesome.css" rel="stylesheet">  
         <!--  Sidebar style -->
@@ -41,6 +38,48 @@
         <!-- Our customized css -->
         <link rel="stylesheet" href="css/test.css"/>
         
+		<!-- Placed at the end of the document so the pages load faster -->
+        <!--  
+    	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+
+
+
+        <!-- leaflet-routing-machine -->
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+       <!-- Leaflet.js -->
+        <script src="lib/Leaflet/dist/leaflet.js"></script>
+        <!-- Jquery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <!-- Leaflet lib -->
+        <script src="lib/leaflet-providers-master/leaflet-providers.js"></script>
+        
+        <!-- Leaflet sidebar -->
+        <script src="lib/sidebar-v2/js/leaflet-sidebar.js"></script>
+        <!-- Leaflet marker icons -->
+        <script src="lib/BeautifyMarker-master/leaflet-beautify-marker-icon.js"></script>
+        <!-- Leaflet layer switcher -->
+        <script src="lib/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.js"></script>
+        <!-- Bootstrap slider -->
+        <script type="text/javascript" src="lib/bootstrap-slider/dist/bootstrap-slider.js"></script>
+
+
+        <!-- Data -->
+        <script type="text/javascript" src="data/emo_json_100.js"></script>
+        <script src="data/Basemaps.js"></script>
+    	<script src="spot/Bar.json"></script>
+    	<script src="spot/Cafe.json"></script>
+    	<script src="spot/Club.json"></script>
+    	<script src="spot/Others.json"></script>
+    	<script src="spot/Garden.json"></script>
+    	<script src="spot/Pub.json"></script>
+    	<script src="spot/Restaurant.json"></script>
+    	
+
 
         <style>
     		nav {
@@ -234,46 +273,7 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <!--  
-    	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
-
-
-
-        <!-- leaflet-routing-machine -->
-        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
-
-         <!-- Leaflet.js -->
-        <script src="lib/Leaflet/dist/leaflet.js"></script>
-        <!-- Jquery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <!-- Leaflet lib -->
-        <script src="lib/leaflet-providers-master/leaflet-providers.js"></script>
         
-        <!-- Leaflet sidebar -->
-        <script src="lib/sidebar-v2/js/leaflet-sidebar.js"></script>
-        <!-- Leaflet marker icons 
-        <script src="lib/BeautifyMarker-master/leaflet-beautify-marker-icon.js"></script> -->
-        <!-- Leaflet layer switcher -->
-        <script src="lib/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.js"></script>
-        <!-- Bootstrap slider -->
-        <script type="text/javascript" src="lib/bootstrap-slider/dist/bootstrap-slider.js"></script>
-
-
-        <!-- Data -->
-        <script type="text/javascript" src="data/emo_json_100.js"></script>
-        <script src="data/Basemaps.js"></script>
-    	<script src="spot/bar.json"></script>
-    	<script src="spot/cafe.json"></script>
-    	<script src="spot/club.json"></script>
-    	<script src="spot/others.json"></script>
-    	<script src="spot/plaza_garden.json"></script>
-    	<script src="spot/pub.json"></script>
-    	<script src="spot/restaurant.json"></script>
-    	
     	
 
 	    <script>
@@ -422,13 +422,19 @@
 	    	}
 	    	
 	       // spots selection
-	       var geojsonMarkerOptions = {
-	    		radius: 3,
-	    		fillColor: "#ff7800",
-	    		color: "#000",
-	    		weight: 1,
-	    		opacity: 1,
-	    		fillOpacity: 0.8 };
+		   //get current position, the spot selection function needd to insert to it
+		navigator.geolocation.getCurrentPosition(function(location) {  
+			var start = new L.LatLng(location.coords.latitude, location.coords.longitude);
+			var marker = L.marker(start).addTo(map);
+			
+			//put the point style defination at the end
+	        //var geojsonMarkerOptions = {
+	    	//	radius: 3,
+	    	//	fillColor: "#ff7800",
+	    	//	color: "#000",
+	    	//	weight: 1,
+	    	//	opacity: 1,
+	    	//	fillOpacity: 0.8 };
 
 	        var Bar = L.geoJson(bar, { pointToLayer: function (feature, latlng) { 
 	            return L.circleMarker(latlng, geojsonMarkerOptions);}}).addTo(map);
@@ -481,7 +487,11 @@
 	                            return element.getBounds().contains(newpoints) === true;
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	                }).addTo(map);
 
 	            if($('#Cafe').is(':checked'))
@@ -498,7 +508,11 @@
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
 
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	                }).addTo(map);
 
 	            if($('#Club').is(':checked'))
@@ -514,7 +528,11 @@
 	                            return element.getBounds().contains(newpoints) === true;
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	                }).addTo(map);
 
 	            if($('#Others').is(':checked'))
@@ -530,7 +548,11 @@
 	                            return element.getBounds().contains(newpoints) === true;
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	                }).addTo(map);
 
 	            if($('#Park').is(':checked'))
@@ -546,7 +568,11 @@
 	                            return element.getBounds().contains(newpoints) === true;
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	                }).addTo(map);
 	            if($('#Pub').is(':checked'))
 	            Pub = L.geoJson(
@@ -561,7 +587,11 @@
 	                            return element.getBounds().contains(newpoints) === true;
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	            }).addTo(map);
 
 	            if($('#Restauraunt').is(':checked'))
@@ -578,9 +608,13 @@
 	                        });
 	                        // return points_emotion.getBounds().contains(some);
 
-	                    }
+	                    },
+						// add the answer function when click the point
+						onEachFeature: function (feature, layer) {
+							layer.on('click', function(e) {onClick(e, start,routeControl);});
+						}
 	                }).addTo(map);
-	        }
+	        };
 
 	        $('input:checkbox[name="spots"]').change(function () {
 	            addPointsInPolygons();
@@ -609,15 +643,35 @@
 	            //  // Simply remove unchecked layers
 	            //  map.removeLayer(window[$(this).attr('id')]);}
 	            });
-	        
-	        //Route Generation
-	        
-	        
-	        //get users' location
-	        navigator.geolocation.getCurrentPosition(function(location) {
-	            var my_location = new L.LatLng(location.coords.latitude, location.coords.longitude);
-	            var marker = L.marker(my_location).addTo(map);
-	        });	 
+	        var routeControl = L.Routing.control({
+				waypoints: null,
+				lineOptions: {
+			 styles:[{"color": "#ff7800","weight": 5,"opacity": 0.65}]
+			}
+			});
+	});
+	//click function
+	function onClick(e,start,Control){
+		var end = e.latlng;
+		//var icon = L.icon({
+        //iconUrl: 'https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Marker-Outside-Azure.png',
+        //iconSize: [ 48, 48 ],
+		//});
+		// var layer = e.target;
+		//layer.setIcon(layer.options.icon = icon);
+       //e.target.setIcon( new icon);
+        
+		Control.setWaypoints([L.latLng(start),L.latLng(end)]).addTo(map);
+		
+	}
+	var geojsonMarkerOptions  = {
+      radius: 6,
+      fillColor: "#ff7800",
+      color: "#000",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 1
+    };
 	    </script>
     </body>
 </html>
