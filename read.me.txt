@@ -1,18 +1,24 @@
-Libraries:
-1. bootstrap-slider
-https://github.com/seiyria/bootstrap-slider
+To run the project:
 
-2. Leaflet
-https://github.com/Leaflet/Leaflet
+	Libraries you need to 'git clone' into 'lib' folder:
+	1. bootstrap-slider
+	https://github.com/seiyria/bootstrap-slider
 
-3. leaflet-groupedlayercontrol
-https://github.com/ismyrnow/leaflet-groupedlayercontrol
+	2. Leaflet
+	https://github.com/Leaflet/Leaflet
 
-4. leaflet-providers-master
-https://github.com/leaflet-extras/leaflet-providers
+	3. leaflet-groupedlayercontrol
+	https://github.com/ismyrnow/leaflet-groupedlayercontrol
 
-5. sidebar-v2
-https://github.com/Turbo87/sidebar-v2
+	4. leaflet-providers-master
+	https://github.com/leaflet-extras/leaflet-providers
 
-6. Font Awesome
-https://github.com/FortAwesome/Font-Awesome
+	5. sidebar-v2
+	https://github.com/Turbo87/sidebar-v2
+
+	6. Font Awesome
+	https://github.com/FortAwesome/Font-Awesome
+
+	7. osrm-backend
+	https://github.com/Project-OSRM/osrm-backend.git
+	
