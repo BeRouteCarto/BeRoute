@@ -178,22 +178,22 @@ nav a:hover::before {
 	background: #EC883A;
 }
 #slider-range-selector-input .slider-rangeHighlight.category5 {
-	background: #e69333;
+	background: #ffffcc;
 }
 #slider-range-selector-input .slider-rangeHighlight.category6 {
-	background: #D1D22C;
+	background: #d9f0a3;
 }
 #slider-range-selector-input .slider-rangeHighlight.category7 {
-	background: #ffff00;
+	background: #addd8e;
 }
 #slider-range-selector-input .slider-rangeHighlight.category8 {
-	background: #96bf33;
+	background: #41ab5d;
 }
 #slider-range-selector-input .slider-rangeHighlight.category9 {
-	background: #479e1b;
+	background: #006837;
 }
 #slider-range-selector-input .slider-rangeHighlight.category10 {
-	background: #54f920;
+	background: #004529;
 }
 
 #slider-range-selector-input {
@@ -246,8 +246,8 @@ nav a:hover::before {
 }
 
 div.leaflet-control-layers.leaflet-control {
-    margin-top: 77px;
-    margin-right: 7px;
+    margin-top: 5px;
+    margin-right: 9px;
 }
 
 .sidebar-header {
