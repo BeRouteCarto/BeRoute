@@ -356,21 +356,24 @@
 		            });
 
 		        
-				
+				var start = null;
+				var marker = null;
 				
 		        //get current position, the spot selection function needd to insert to it
 				//for getting the click reaction, variable definition for Spot need to be in this function
-				navigator.geolocation.getCurrentPosition(function(location) {  
-					var start = new L.LatLng(location.coords.latitude, location.coords.longitude);
-					var marker = L.marker(start).addTo(map);
-					
-					//Emtion Map
-					//Based on the last version, insert all codes 
+				//navigator.geolocation.getCurrentPosition(function(location) {
+				//	var start = new L.LatLng(location.coords.latitude, location.coords.longitude);
+				//	var marker = L.marker(start).addTo(map);
+
+					//init styles array
 					var myStyles = initStyles();
+					//Emtion Map
+					//Based on the last version, insert all codes
 					var points_emotion = L.geoJson(emo_100_poly, {
-		            style:function(feature) {
-		                return myStyles[Math.floor(feature.properties.score)];
-		            }}).addTo(map);
+		            	style:function(feature) {
+		                	return myStyles[Math.floor(feature.properties.score)];
+		            	}
+					}).addTo(map);
 					var sliderRangeSelector = $('#slider-range-selector-input').slider({
 		            id: 'slider-range-selector-input',
 		            min: 4,
@@ -393,30 +396,29 @@
 		                return 'Current value: ' + value;
 		            }
 					});
-					//init styles array
-					var myStyles = initStyles();
-						$( "#submit-slider-range-selector" ).click(function() {
-							// var myStyle = {
-							//  "color": "red",
-							//  "weight": 5,
-							//  "opacity": 0.65
-							// };
+					$( "#submit-slider-range-selector" ).click(function() {
+						// var myStyle = {
+						//  "color": "red",
+						//  "weight": 5,
+						//  "opacity": 0.65
+						// };
 						points_emotion.getLayers().forEach(function(item, i, arr) {
 							map.removeLayer(item);
-					});
+						});
 
-					var selectorValue = sliderRangeSelector.slider('getValue');
+						var selectorValue = sliderRangeSelector.slider('getValue');
 
-					points_emotion = L.geoJson(
-						emo_100_poly,
-						{
-							style:function(feature) {
-							return myStyles[Math.floor(feature.properties.score)];
-							},
-							filter: function (feature, layer) {
-							return selectorValue[0] <= Math.floor(feature.properties.score) && selectorValue[1] > Math.floor(feature.properties.score);
+						points_emotion = L.geoJson(
+							emo_100_poly,
+							{
+								style:function(feature) {
+								return myStyles[Math.floor(feature.properties.score)];
+								},
+								filter: function (feature, layer) {
+								return selectorValue[0] <= Math.floor(feature.properties.score) && selectorValue[1] > Math.floor(feature.properties.score);
+								}
 							}
-							}).addTo(map);
+						).addTo(map);
 
 						addPointsInPolygons ();
 					});
@@ -457,7 +459,7 @@
 			        var routeControl = L.Routing.control({
 						waypoints: null,
 						lineOptions: {
-					 	styles:[{"color": "#ff7800","weight": 5,"opacity": 0.65}]
+					 		styles:[{"color": "#ff7800","weight": 5,"opacity": 0.65}]
 						}
 					});
 					// spots selection
@@ -477,7 +479,7 @@
 					var Restauraunt = L.geoJson(restaurant, { pointToLayer: function (feature, latlng) { 
 					return L.marker(latlng, {icon: RestaurantIcon});}});
 
-					function addPointsInPolygons() {
+				function addPointsInPolygons() {
 					Bar.getLayers().forEach(function(item, i, arr) {
 						map.removeLayer(item);
 					});
@@ -507,19 +509,8 @@
 							pointToLayer: function (feature, latlng) { 
 							return L.marker(latlng, {icon: BarIcon});
 							},
-							filter: function (feature, layer) {
-								let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-								return points_emotion.getLayers().some(function(element) {
-									return element.getBounds().contains(NewPonts) === true;
-								});
-								// return points_emotion.getBounds().contains(some);
-							},
-							onEachFeature: function (feature, layer) {
-										layer.on('click', function(e) {onClick(e, start,routeControl);});
-										if (feature.properties && feature.properties.name) {
-												layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)+
-												"</br>";}
-							}
+							filter: filter,
+							onEachFeature: onEachFeature
 						}).addTo(map);
 
 					if($('#Cafe').is(':checked'))
@@ -529,20 +520,8 @@
 							pointToLayer: function (feature, latlng) { 
 								return L.marker(latlng, {icon: CafeIcon});
 							},
-							filter: function (feature, layer) {
-								let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-								return points_emotion.getLayers().some(function(element) {
-									return element.getBounds().contains(NewPonts) === true;
-								});
-								// return points_emotion.getBounds().contains(some);
-
-							},
-							onEachFeature: function (feature, layer) {
-										layer.on('click', function(e) {onClick(e, start,routeControl);});
-										if (feature.properties && feature.properties.name) {
-												layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)+
-												"</br>";}
-							}
+							filter: filter,
+							onEachFeature: onEachFeature
 						}).addTo(map);
 
 					if($('#Club').is(':checked'))
@@ -552,19 +531,8 @@
 							pointToLayer: function (feature, latlng) { 
 								return L.marker(latlng, {icon: ClubIcon});
 							},
-							filter: function (feature, layer) {
-								let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-								return points_emotion.getLayers().some(function(element) {
-									return element.getBounds().contains(NewPonts) === true;
-								});
-								// return points_emotion.getBounds().contains(some);
-							},
-							onEachFeature: function (feature, layer) {
-										layer.on('click', function(e) {onClick(e, start,routeControl);});
-										if (feature.properties && feature.properties.name) {
-												layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)+
-												"</br>";}
-							}
+							filter: filter,
+							onEachFeature: onEachFeature
 						}).addTo(map);
 
 					if($('#Others').is(':checked'))
@@ -574,19 +542,8 @@
 							pointToLayer: function (feature, latlng) { 
 								return L.marker(latlng, {icon: OthersIcon});
 							},
-							filter: function (feature, layer) {
-								let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-								return points_emotion.getLayers().some(function(element) {
-									return element.getBounds().contains(NewPonts) === true;
-								});
-								// return points_emotion.getBounds().contains(some);
-							},
-							onEachFeature: function (feature, layer) {
-										layer.on('click', function(e) {onClick(e, start,routeControl);});
-										if (feature.properties && feature.properties.name) {
-												layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)+
-												"</br>";}
-							}
+							filter: filter,
+							onEachFeature: onEachFeature
 						}).addTo(map);
 					
 					//if($('#Park').is(':checked'))
@@ -617,19 +574,8 @@
 							pointToLayer: function (feature, latlng) { 
 								return L.marker(latlng, {icon: PubIcon});
 							},
-							filter: function (feature, layer) {
-								let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-								return points_emotion.getLayers().some(function(element) {
-									return element.getBounds().contains(NewPonts) === true;
-								});
-								// return points_emotion.getBounds().contains(some);
-							},
-							onEachFeature: function (feature, layer) {
-										layer.on('click', function(e) {onClick(e, start,routeControl);});
-										if (feature.properties && feature.properties.name) {
-												layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)+
-												"</br>";}
-							}
+							filter: filter,
+							onEachFeature: onEachFeature
 						}).addTo(map);
 				   
 
@@ -640,32 +586,49 @@
 							pointToLayer: function (feature, latlng) { 
 								return L.marker(latlng, {icon: RestaurantIcon});
 							},
-							filter: function (feature, layer) {
-								let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
-								return points_emotion.getLayers().some(function(element) {
-									return element.getBounds().contains(NewPonts) === true;
-								});
-								// return points_emotion.getBounds().contains(some);
-
-							},
-							onEachFeature: function (feature, layer) {
-										layer.on('click', function(e) {onClick(e, start,routeControl);});
-										if (feature.properties && feature.properties.name) {
-												layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)+
-												"</br>";}
-							}
+							filter: filter,
+							onEachFeature: onEachFeature
 						}).addTo(map);
 						
-				};
+				}
 
 				$('input:checkbox[name="spots"]').change(function () {
 					addPointsInPolygons();
 				});
-				});
+				//});
+
+				function onEachFeature(feature, layer) {
+					layer.on('click', function(e) {onClick(e)});
+					if (feature.properties && feature.properties.name) {
+						layer.bindPopup(feature.properties.name+"<br>"+feature.properties.Address)}
+				}
+
+				function filter (feature, layer) {
+					let NewPonts = L.latLng(feature.geometry.coordinates[1], feature.geometry.coordinates[0]);
+					return points_emotion.getLayers().some(function(element) {
+						return element.getBounds().contains(NewPonts) === true;
+					});
+					// return points_emotion.getBounds().contains(some);
+				}
 
 				//click function
-				function onClick(e,start,Control){
+				function onClick(e){
+
 					var end = e.latlng;
+					if(start === null)
+					{
+						navigator.geolocation.getCurrentPosition(function(location) {
+							start = new L.LatLng(location.coords.latitude, location.coords.longitude);
+							marker = L.marker(start).addTo(map);
+							setWaypoints(start, end)
+						});
+					}
+					else
+					{
+						setWaypoints(start, end)
+					}
+
+
 					//var icon = L.icon({
 			        //iconUrl: 'https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Marker-Outside-Azure.png',
 			        //iconSize: [ 48, 48 ],
@@ -673,8 +636,11 @@
 					// var layer = e.target;
 					//layer.setIcon(layer.options.icon = icon);
 			       //e.target.setIcon( new icon);
-			        
-					Control.setWaypoints([L.latLng(start),L.latLng(end)]).addTo(map);
+				}
+
+				function setWaypoints(start, end)
+				{
+					routeControl.setWaypoints([L.latLng(start),L.latLng(end)]).addTo(map);
 				}
 
 				var geojsonMarkerOptions  = {
