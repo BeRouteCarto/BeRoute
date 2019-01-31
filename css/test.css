@@ -166,34 +166,64 @@ nav a:hover::before {
 }
 
 #slider-range-selector-input .slider-rangeHighlight.category1 {
-	background: #ff0000;
+	background: #65000B;
 }
 #slider-range-selector-input .slider-rangeHighlight.category2 {
-	background: #d13632;
+	background: #67001f;
 }
 #slider-range-selector-input .slider-rangeHighlight.category3 {
-	background: #e2571e;
+	background: #800026;
 }
 #slider-range-selector-input .slider-rangeHighlight.category4 {
-	background: #EC883A;
+	background: #bd0026;
 }
 #slider-range-selector-input .slider-rangeHighlight.category5 {
-	background: #ffffcc;
+	background: #e31a1c;
 }
 #slider-range-selector-input .slider-rangeHighlight.category6 {
-	background: #d9f0a3;
+	background: #fc4e2a;
 }
 #slider-range-selector-input .slider-rangeHighlight.category7 {
-	background: #addd8e;
+	background: #fd8d3c;
 }
 #slider-range-selector-input .slider-rangeHighlight.category8 {
-	background: #41ab5d;
+	background: #feb24c;
 }
 #slider-range-selector-input .slider-rangeHighlight.category9 {
-	background: #006837;
+	background: #fed976;
 }
 #slider-range-selector-input .slider-rangeHighlight.category10 {
+	background: #ffeda0;
+}
+#slider-range-selector-input .slider-rangeHighlight.category11 {
+	background: #ffffcc;
+}
+#slider-range-selector-input .slider-rangeHighlight.category12 {
+	background: #f7fcb9;
+}
+#slider-range-selector-input .slider-rangeHighlight.category13 {
+	background: #d9f0a3;
+}
+#slider-range-selector-input .slider-rangeHighlight.category14 {
+	background: #addd8e;
+}
+#slider-range-selector-input .slider-rangeHighlight.category15 {
+	background: #78c679;
+}
+#slider-range-selector-input .slider-rangeHighlight.category16 {
+	background: #41ab5d;
+}
+#slider-range-selector-input .slider-rangeHighlight.category17 {
+	background: #238443;
+}
+#slider-range-selector-input .slider-rangeHighlight.category18 {
+	background: #006837;
+}
+#slider-range-selector-input .slider-rangeHighlight.category19 {
 	background: #004529;
+}
+#slider-range-selector-input .slider-rangeHighlight.category20 {
+	background: #003300;
 }
 
 #slider-range-selector-input {
