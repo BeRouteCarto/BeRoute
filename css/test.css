@@ -165,65 +165,48 @@ nav a:hover::before {
 	width: 69%;
 }
 
-#slider-range-selector-input .slider-rangeHighlight.category1 {
-	background: #65000B;
-}
-#slider-range-selector-input .slider-rangeHighlight.category2 {
-	background: #67001f;
-}
-#slider-range-selector-input .slider-rangeHighlight.category3 {
-	background: #800026;
-}
-#slider-range-selector-input .slider-rangeHighlight.category4 {
-	background: #bd0026;
-}
-#slider-range-selector-input .slider-rangeHighlight.category5 {
-	background: #e31a1c;
-}
-#slider-range-selector-input .slider-rangeHighlight.category6 {
-	background: #fc4e2a;
-}
-#slider-range-selector-input .slider-rangeHighlight.category7 {
-	background: #fd8d3c;
-}
-#slider-range-selector-input .slider-rangeHighlight.category8 {
-	background: #feb24c;
-}
-#slider-range-selector-input .slider-rangeHighlight.category9 {
-	background: #fed976;
-}
-#slider-range-selector-input .slider-rangeHighlight.category10 {
+#slider-range-selector-input .slider-rangeHighlight.category0 {
 	background: #ffeda0;
 }
-#slider-range-selector-input .slider-rangeHighlight.category11 {
-	background: #ffffcc;
+#slider-range-selector-input .slider-rangeHighlight.category1 {
+	background: #67001f;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category12 {
-	background: #f7fcb9;
+#slider-range-selector-input .slider-rangeHighlight.category2 {
+	background: #a50026;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category13 {
-	background: #d9f0a3;
+#slider-range-selector-input .slider-rangeHighlight.category3 {
+	background: #d73027;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category14 {
-	background: #addd8e;
+#slider-range-selector-input .slider-rangeHighlight.category4 {
+	background: #f46d43;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category15 {
-	background: #78c679;
+#slider-range-selector-input .slider-rangeHighlight.category5 {
+	background: #fdae61;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category16 {
-	background: #41ab5d;
+#slider-range-selector-input .slider-rangeHighlight.category6 {
+	background: #fee08b;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category17 {
-	background: #238443;
+#slider-range-selector-input .slider-rangeHighlight.category7 {
+	background: #a6d96a;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category18 {
+#slider-range-selector-input .slider-rangeHighlight.category8 {
+	background: #66bd63;
+	border-width: 1px;
+}
+#slider-range-selector-input .slider-rangeHighlight.category9 {
 	background: #006837;
+	border-width: 1px;
 }
-#slider-range-selector-input .slider-rangeHighlight.category19 {
-	background: #004529;
-}
-#slider-range-selector-input .slider-rangeHighlight.category20 {
-	background: #003300;
+#slider-range-selector-input .slider-rangeHighlight.category10 {
+	background: #00441b;
+	border-width: 1px;
 }
 
 #slider-range-selector-input {
