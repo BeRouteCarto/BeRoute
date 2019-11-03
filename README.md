@@ -1,5 +1,8 @@
 # BeRoute
 
+<img src="img/whatisBeRoute.gif" />
+
+
 To run the project:
 
 	Libraries you need to 'git clone' into 'lib' folder:
